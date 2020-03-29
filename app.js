@@ -1,4 +1,5 @@
 var scores, roundScore, activePlayer;
+var finalScore = prompt('enter final Score!');
 
 scores = [0, 0];
 roundScore = 0;
@@ -35,7 +36,7 @@ document.querySelector('.btn-roll').addEventListener('click' , function() {
         roundScore = 0;
 
         // hiding the dice
-        document.querySelector('.dice').style.display = 'none';
+        // document.querySelector('.dice').style.display = 'none';
 
         
         // changed activePlayer
@@ -52,7 +53,7 @@ document.querySelector('.btn-roll').addEventListener('click' , function() {
 document.querySelector('.btn-hold').addEventListener('click' , function() {
     // roundScore added to score[i] and display player's round score
     scores[activePlayer] += roundScore;
-    if(scores[activePlayer] >= 30) {
+    if(scores[activePlayer] >= finalScore) {
         document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
         document.getElementById('name-' + activePlayer).textContent = 'Winner';
         document.querySelector('.dice').style.display = 'none';
@@ -89,6 +90,9 @@ document.querySelector('.btn-new').addEventListener('click' , function() {
     scores = [0, 0];
     roundScore = 0;
     activePlayer = 0;
+
+    document.getElementById('name-0').textContent = 'Player 1';
+    document.getElementById('name-1').textContent = 'Player 2';
 
     document.querySelector('.dice').style.display = 'none';
 
